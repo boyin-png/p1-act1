@@ -1,5 +1,19 @@
-<section class="banner">
-  <h1>Bienvenid@s</h1>
-  <p>Esta es la página principal de mi app con Angular v20.</p>
-</section>
+<h1>Lista de Ciudades</h1>
 
+<!-- 1. Imprimir cada propiedad de cada elemento del arreglo -->
+@for (elemento of ciudades; track elemento.ciudad) {
+  <p>{{ elemento.pais }} - {{ elemento.ciudad }} - {{ elemento.habitantes }} habitantes</p>
+}
+
+<!-- 2. Mostrar h2 si hay más de 5 elementos -->
+@if (ciudades.length > 5) {
+  <h2>Tengo mas de 5 elementos</h2>
+}
+
+<!-- 3. Mostrar h5 con color condicional -->
+<h5 [ngClass]="{
+  'colorAzul': ciudades.length < 5,
+  'colorVerde': ciudades.length >= 5
+}">
+  Número de ciudades: {{ ciudades.length }}
+</h5>
